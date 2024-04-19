@@ -1,0 +1,64 @@
+/* Reset some default browser styles */
+body, h1, ul {
+    margin: 0;
+    padding: 0;
+}
+
+.App{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* Header styles */
+.header {
+    color: white;
+    background-color: #2196F3;
+    text-align: center;
+    padding: 20px 0;
+    border-end-end-radius: 10px 10px  0% 0%;
+}
+
+
+/* Navbar styles */
+.navbar {
+    background-color: #64B5F6;
+    align-items: center;
+    border-bottom-left-radius: 10px ;
+    border-bottom-right-radius: 10px;
+    
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    align-items:center;
+    margin: auto;
+}
+.navbar ul li {
+    margin-right: 20px;
+}
+.navbar ul li.navbar-button {
+    margin-right: 0;
+}
+
+.navbar-button button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    transition: all 0.3s ease; 
+}
+.navbar ul button:hover {
+    background-color: #1976D2;
+    transform: scale(1.1); 
+
+}
+  

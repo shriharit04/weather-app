@@ -24,6 +24,22 @@ function App() {
     }));
   };
 
+  const [myCities,setMyCities] = useState([ {city:"Delhi",datas:[14,24,30],code:"01d"},
+                                            {city:"London", datas:[10,60,40],code:"11n"}
+  ]);
+
+  const handleCity = async(cityName, action) => {
+    if (action === 1) {
+      const data = await GetWeatherData(cityName)
+      console.log(data)
+      setMyCities(prevCities => [...prevCities, data]);
+    } else if (action === 0) {
+      // Remove city from myCities
+      setMyCities(prevCities => prevCities.filter(city => city.city !== cityName));
+    }
+  };
+
+
   return (
     <div className="App">
       <header className="header">
@@ -45,7 +61,7 @@ function App() {
       {visibleComponents.home && <Home/>}
       {visibleComponents.about && <About/>}
       {visibleComponents.qw && <QuickSearch/>}
-      {visibleComponents.compareCities && <CompareCities/>}
+      {visibleComponents.compareCities && <CompareCities />}
     </div>
   );
 }

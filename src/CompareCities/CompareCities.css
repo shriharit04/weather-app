@@ -1,14 +1,26 @@
+
+
+
+
+/*card*/
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.1);
+  }
 .container{
     background-color: black;
     width :280px;
     height: 400px;
-    margin: auto;
+    margin: 20px;
     margin-top: 75px ;
-    background-image: linear-gradient(180deg, blue,purple 100%);
+    background-image: linear-gradient(200deg, rgb(47, 45, 45),blue 100%);
     justify-content: center;
     align-items: center;
     text-align: center;
     border-radius: 30px;
+    vertical-align: center;
+    transition: all ease-in-out 0.3s;
 }
 
 .top-bar{
@@ -45,10 +57,10 @@
 }
 
 .weather-img{
-    margin-top: 10px;
+    margin-top: 0px;
     display: flex;
     justify-content: center;
-    height: 80px;
+    height: 140px;
 }
 
 
@@ -56,7 +68,7 @@
     display: flex;
     justify-content: center;
     color: white;
-    font-size: 80px; 
+    font-size: 60px; 
     font-weight: 400;
 
 }
@@ -64,9 +76,37 @@
     display: flex;
     justify-content: center;
     color : white;
-    font-size: 30px;
-    font-weight: 400;
+    font-size: 50px;
+    font-weight: 500;
+    padding-top: 20px;
 }
+
+.weather-location-remove {
+    display: flex;
+    flex-direction: column; /* Added to align items vertically */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 50px;
+    font-weight: 500;
+    padding-top: 0px;
+    background-color: black; /* Using only one background color */
+    width: 280px;
+    height: 400px;
+    margin: 20px;
+    margin-top: 75px;
+    background-image: linear-gradient(200deg, rgb(47, 45, 45), blue 100%);
+    border-radius: 30px; /* Rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out; /* Smooth background color transition */
+}
+
+.weather-location-remove:hover {
+    background-image: linear-gradient(200deg, rgb(47, 45, 45), white 100%);
+    color: black;
+
+}
+
 
 .data-container{
     margin:20px;
@@ -93,3 +133,40 @@
     font-weight : 400;
 
 }
+
+
+/*new card  */
+.NewCard input:focus{
+    width: 900px;
+}
+
+.circle {
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 140px;
+    color: white;
+    margin-top: 40% ;
+    margin-bottom: 20%;
+  }
+  
+  .plus {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .search-box {
+    margin-top: 20px;
+  }
+  
+  .search-box-new input{
+    width: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }

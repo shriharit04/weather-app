@@ -39,6 +39,30 @@ function App() {
     }
   };
 
+  const GetWeatherData = async(cityName)=>{
+    const apiKey = "e1a61a7b32d0c31c60393ed4674bc7c0"
+    let data = {};
+    if(cityName===""){
+      alert("Enter proper city name");
+     data = {city:"undefined",datas: [0,0,0],code :"01d"};
+    }else{
+      let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&&units=Metric`
+      try {
+        const response = await fetch(url);
+        const responseData = await response.json();
+        const vals = [responseData.main.temp, responseData.main.humidity, responseData.wind.speed];
+        console.log(vals);
+        data = { city: cityName, datas: vals, code: responseData.weather[0].icon };
+
+      }catch(err){
+        alert("Enter proper city name");
+        data = { city: "undefined", datas: [0, 0, 0],code:"01d" };
+      }
+    }
+    return data;
+  }
+
+
 
   return (
     <div className="App">
@@ -61,7 +85,7 @@ function App() {
       {visibleComponents.home && <Home/>}
       {visibleComponents.about && <About/>}
       {visibleComponents.qw && <QuickSearch/>}
-      {visibleComponents.compareCities && <CompareCities />}
+      {visibleComponents.compareCities && <CompareCities myCities = {myCities} handleCity = {handleCity} />}
     </div>
   );
 }

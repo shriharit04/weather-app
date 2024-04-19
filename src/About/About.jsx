@@ -1,7 +1,7 @@
 import React from 'react';
 import "./About.css"
 
-const WeatherAppAbout = () => {
+const About = () => {
   return (
     <div className="about-container">
       <h1>WeatherApp</h1>

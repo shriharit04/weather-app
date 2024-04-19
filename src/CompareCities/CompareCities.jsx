@@ -12,21 +12,21 @@ const style = {
 };
 
 
-function CompareCities() {  
-  const [myCities,setMyCities] = useState([ {city:"Delhi",datas:[14,24,30],code:"01d"},
-                                            {city:"London", datas:[10,60,40],code:"11n"}
-  ]);
+function CompareCities(props) {  
+  // const [myCities,setMyCities] = useState([ {city:"Delhi",datas:[14,24,30],code:"01d"},
+  //                                           {city:"London", datas:[10,60,40],code:"11n"}
+  // ]);
   
-  const handleCity = async(cityName, action) => {
-    if (action === 1) {
-      const data = await GetWeatherData(cityName)
-      console.log(data)
-      setMyCities(prevCities => [...prevCities, data]);
-    } else if (action === 0) {
-      // Remove city from myCities
-      setMyCities(prevCities => prevCities.filter(city => city.city !== cityName));
-    }
-  };
+  // const handleCity = async(cityName, action) => {
+  //   if (action === 1) {
+  //     const data = await GetWeatherData(cityName)
+  //     console.log(data)
+  //     setMyCities(prevCities => [...prevCities, data]);
+  //   } else if (action === 0) {
+  //     // Remove city from myCities
+  //     setMyCities(prevCities => prevCities.filter(city => city.city !== cityName));
+  //   }
+  // };
 
   const GetWeatherData = async(cityName)=>{
     const apiKey = "e1a61a7b32d0c31c60393ed4674bc7c0"
@@ -54,11 +54,11 @@ function CompareCities() {
   
   return (
     <div style={style}>
-      {myCities.map((city, index) => {
+      {props.myCities.map((city, index) => {
         console.log(city);
-        return <CompareCard key={index} cityName={city.city} tempDatas={city.datas} code = {city.code}handleCity = {handleCity} />;
+        return <CompareCard key={index} cityName={city.city} tempDatas={city.datas} code = {city.code}handleCity = {props.handleCity} />;
       })}  
-      <NewCard handleCity = {handleCity}></NewCard>
+      <NewCard handleCity = {props.handleCity}></NewCard>
 
     
 

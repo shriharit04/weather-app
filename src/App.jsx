@@ -4,6 +4,8 @@ import Home from './Home/Home';
 import QuickSearch from './QuickSearch';
 import About from './About/About';
 import CompareCities from './CompareCities/CompareCities';
+import Recents from './Recents/Recents';
+import RotatingCard from './DelLater';
 function App() {
   const [visibleComponents, setVisibleComponents] = useState({
     home: true,
@@ -84,8 +86,9 @@ function App() {
 
       {visibleComponents.home && <Home/>}
       {visibleComponents.about && <About/>}
-      {visibleComponents.qw && <QuickSearch/>}
+      {visibleComponents.qw && <RotatingCard/>}
       {visibleComponents.compareCities && <CompareCities myCities = {myCities} handleCity = {handleCity} />}
+      {visibleComponents.pastHistory && <Recents data = {myCities}/>}
     </div>
   );
 }

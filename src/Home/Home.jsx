@@ -1,18 +1,21 @@
-import React from 'react'
-import { useState } from 'react';
-function Home() {
-  
+import React from 'react';
+import './App.css';
+import SortableTable from './SortableTable';
+
+function App() {
+  const data = [
+    { name: 'John', age: 30, city: 'New York' },
+    { name: 'Jane', age: 25, city: 'Los Angeles' },
+    { name: 'Doe', age: 40, city: 'Chicago' },
+    // Add more data items as needed
+  ];
 
   return (
-    <>
-      <h1>things to do</h1>
-      <ol>
-        <li>Previous day forcast</li>
-        <li>Add Compare cities, that displays a table, with card adding facility</li>
-        <li>try using this api https://open-meteo.com/en/docs#latitude=13.0878&longitude=80.2785</li>
-      </ol>
-    </>
-  )
+    <div className="App">
+      <h1>Sortable Table</h1>
+      <SortableTable data={data} />
+    </div>
+  );
 }
 
-export default Home
+export default App;

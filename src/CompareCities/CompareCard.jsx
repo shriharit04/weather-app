@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ReactCardFlip from 'react-card-flip'
 // import searchIcon from '../assets/search.png' 
 import clearIcon from '../assets/clear.png'
 import cloudIcon from '../assets/cloud.png'
@@ -13,6 +14,7 @@ import windIcon from '../assets/wind.png'
 function CompareCard(props) {
   const [showCity, setShowCity] = useState(true)
   const [wIcon, setWIcon] = useState(cloudIcon)
+  const [flip, setFlip] = useState(false)
   
   const handleShowCity = (e) =>{
     e.preventDefault();
@@ -41,12 +43,11 @@ function CompareCard(props) {
     }
   };
 
-
   const weatherIcon = UpdateIcon(props.code);
     
   return (
     <>
-    {showCity && <div className="container" onContextMenu ={(e)=>handleShowCity(e)}>
+    {showCity && <div className="container" onContextMenu ={(e)=>handleShowCity(e)} onClick={()=>setFlip(!flip)}>
     <div className="weather-location">{props.cityName}</div>
     <div className="weather-img">
       <img src={weatherIcon} alt="CloudiCOn" />
@@ -57,7 +58,7 @@ function CompareCard(props) {
         <img src={humidityIcon} alt="" className='icon' style={{height: "40px",width :"40px"}}/>
         <div className="data">
           <div className="humidity">{props.tempDatas[1]}</div>
-          <div className="text">humidity</div>
+          <div className="text">%</div>
         </div>
       </div>
 
@@ -65,7 +66,7 @@ function CompareCard(props) {
         <img src={windIcon} alt="" className='icon' style={{height: "40px",width :"40px"}}/>
         <div className="data">
           <div className="humidity">{props.tempDatas[2]}</div>
-          <div className="text">WindSpeed</div>
+          <div className="text">km/hr</div>
         </div>
       </div>
 
@@ -73,8 +74,10 @@ function CompareCard(props) {
     </div>
   </div>}
   
-  {!showCity && <button className="weather-location-remove" onContextMenu ={(e)=>handleShowCity(e)} onClick={() => props.handleCity(props.cityName,0)}>Remove?</button>}
+  {!  showCity && <button className="weather-location-remove" onContextMenu ={(e)=>handleShowCity(e)} onClick={() => props.handleCity(props.cityName,0)}>Remove?</button>}
     </>
+
+    
   )
 }
 

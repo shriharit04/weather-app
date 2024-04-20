@@ -4,7 +4,7 @@ import Home from './Home/Home';
 import QuickSearch from './QuickSearch';
 import About from './About/About';
 import CompareCities from './CompareCities/CompareCities';
-import Recents from './Recents/Recents';
+import Recents from './TabularData/TabularData';
 import RotatingCard from './DelLater';
 function App() {
   const [visibleComponents, setVisibleComponents] = useState({
@@ -26,10 +26,12 @@ function App() {
     }));
   };
 
-  const [myCities,setMyCities] = useState([ {city:"Delhi",datas:[14,24,30],code:"01d"},
-                                            {city:"London", datas:[10,60,40],code:"11n"}
-  ]);
+  // const [myCities,setMyCities] = useState([ {city:"Delhi",datas:[14,24,30],code:"01d"},
+  //                                           {city:"London", datas:[10,60,40],code:"11n"}
+  // ]);
 
+  const [myCities,setMyCities] = useState([]);
+  
   const handleCity = async(cityName, action) => {
     if (action === 1) {
       const data = await GetWeatherData(cityName)
@@ -46,15 +48,15 @@ function App() {
     let data = {};
     if(cityName===""){
       alert("Enter proper city name");
-     data = {city:"undefined",datas: [0,0,0],code :"01d"};
+     data = {city:"undefined",datas: [0,0,0],code :"01d",tableData : "undefined"};
     }else{
       let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&&units=Metric`
       try {
         const response = await fetch(url);
         const responseData = await response.json();
+        console.log(responseData);
         const vals = [responseData.main.temp, responseData.main.humidity, responseData.wind.speed];
-        console.log(vals);
-        data = { city: cityName, datas: vals, code: responseData.weather[0].icon };
+        data = { city: cityName, datas: vals, code: responseData.weather[0].icon,tableData:responseData};
 
       }catch(err){
         alert("Enter proper city name");
@@ -84,7 +86,7 @@ function App() {
       </nav>
 
 
-      {visibleComponents.home && <Home/>}
+      {visibleComponents.home && <Home data = {myCities}/>}
       {visibleComponents.about && <About/>}
       {visibleComponents.qw && <RotatingCard/>}
       {visibleComponents.compareCities && <CompareCities myCities = {myCities} handleCity = {handleCity} />}

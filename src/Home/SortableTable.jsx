@@ -51,9 +51,9 @@ const SortableTable = ({ data }) => {
       <tbody>
         {sortedData.map((item, index) => (
           <tr key={index}>
-            <td>{item.name}</td>
-            <td>{item.age}</td>
             <td>{item.city}</td>
+            <td>"cvgbhj</td>
+            <td>"bnjk"</td>
           </tr>
         ))}
       </tbody>

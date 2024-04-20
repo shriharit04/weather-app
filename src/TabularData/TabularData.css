@@ -1,0 +1,11 @@
+table{
+    width: 70%;
+    margin: auto;
+    margin-top: 2%;
+}
+
+th:hover {
+    background-color: blue;
+    transition: 0.3s;
+}
+

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
-import QuickSearch from './QuickSearch';
+import QuickSearch from './QuickSearch/QuickSearch';
 import About from './About/About';
 import CompareCities from './CompareCities/CompareCities';
 import Recents from './TabularData/TabularData';
-import RotatingCard from './DelLater';
+import RotatingCard from './DelLater/DelLater';
 function App() {
   const [visibleComponents, setVisibleComponents] = useState({
     about: true,

@@ -1,7 +1,14 @@
 body, h1, h2, p, ul {
     margin: 0px;
     padding: 0px;
+
   }
+
+
+#About  {
+  background-image: linear-gradient(40deg, rgb(47, 45, 45),blue 100%);
+
+}
   
 .about-container {
   font-family: Arial, sans-serif;

@@ -3,13 +3,7 @@ import CompareCard from './CompareCard'
 import './CompareCities.css'
 import NewCard from './NewCard';
 
-const style = {
-  display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent:'space-around',
-  overflow: 'hidden',
-  backgroundColor: '#f2f2f2',
-};
+
 
 
 function CompareCities(props) {  
@@ -53,7 +47,7 @@ function CompareCities(props) {
 
   
   return (
-    <div style={style}>
+    <div className = "CompareCities">
       {props.myCities.map((city, index) => {
         console.log(city);
         return <CompareCard key={index} cityName={city.city} tempDatas={city.datas} code = {city.code}handleCity = {props.handleCity} />;

@@ -1,7 +1,21 @@
+    
 /* Reset some default browser styles */
 body, h1, ul {
     margin: 0;
     padding: 0;
+}
+
+header h1{
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: white;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+header h1:hover{
+    color:rgb(0,0,0,0.8);
+    
 }
 
 .App{
@@ -61,4 +75,3 @@ body, h1, ul {
     transform: scale(1.1); 
 
 }
-  

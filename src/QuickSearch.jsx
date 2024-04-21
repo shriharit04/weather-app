@@ -34,7 +34,8 @@ function QuickSearch() {
         setHumidityData([response.humidity, response.cloud_pct, response.feels_like]);
         setWindData([response.wind_speed, response.sunrise, response.sunset]);
       })
-      .catch(err => console.error(err));
+      .catch(err => {
+        console.error(err)});
   };
 
   return (

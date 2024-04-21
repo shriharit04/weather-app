@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactCardFlip from "react-card-flip";
-import "./CompareCities/CompareCities.css"
+import "../CompareCities/CompareCities.css"
 function App() {
 	const [flip, setFlip] = useState(false);
 	return (
